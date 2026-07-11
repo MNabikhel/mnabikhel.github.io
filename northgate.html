@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northgate Constructors — Case Study · Muntaz Nabikhel</title>
+<meta name="description" content="Case study: building a construction WIP dashboard end to end — scenario, data, model, findings — AI-directed and verified line by line.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231F4E79'/%3E%3Cpath d='M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Northgate Constructors — a WIP dashboard case study">
+<meta property="og:description" content="Scenario, raw data, model, findings. Directed with AI in ~3 hours; verified line by line.">
+<meta property="og:image" content="screenshot-overview.png"><!-- TODO after publish: make absolute -->
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--ink:#101418;--mut:#66707c;--navy:#1F4E79;--deep:#0d1b2c;--line:#e7e9ee;--soft:#f6f7f9;--ease:cubic-bezier(.22,1,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:880px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between}
+  .mono{width:32px;height:32px;display:block}
+  .back{font-size:14px;color:var(--mut);transition:color .25s}
+  .back:hover{color:var(--ink)}
+
+  header{padding:170px 0 90px}
+  .label{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px}
+  h1{font-size:clamp(38px,6.5vw,68px);letter-spacing:-.03em;line-height:1.02}
+  .sub{font-size:clamp(17px,2.2vw,21px);color:var(--mut);max-width:640px;margin-top:24px}
+  .sub b{color:var(--ink);font-weight:600}
+
+  section{padding:70px 0;border-top:1px solid var(--line)}
+  h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.025em;line-height:1.1;margin-bottom:22px}
+  p.body{font-size:17px;color:var(--mut);margin-bottom:18px;max-width:680px}
+  p.body b{color:var(--ink);font-weight:600}
+
+  .fig{margin:36px 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .fig img{width:100%;display:block}
+  .cap{font-size:13.5px;color:var(--mut);margin:12px 0 24px}
+  .fig2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:start}
+  @media(max-width:700px){.fig2{grid-template-columns:1fr}}
+
+  .mcards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+  @media(max-width:700px){.mcards{grid-template-columns:1fr}}
+  .mcard{border:1px solid var(--line);border-radius:14px;padding:26px}
+  .mcard h4{font-size:15.5px;margin-bottom:8px}
+  .mcard code{display:block;font-family:Consolas,Menlo,monospace;font-size:12.5px;background:var(--soft);border-radius:8px;padding:10px 12px;margin:10px 0;color:var(--navy);white-space:pre-wrap}
+  .mcard p{font-size:14px;color:var(--mut)}
+
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:36px 0 8px}
+  @media(max-width:700px){.shots{grid-template-columns:1fr}}
+  .shot{border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+  .shot:hover{transform:translateY(-4px);box-shadow:0 24px 48px -20px rgba(17,20,24,.18)}
+  .shot img{width:100%;display:block}
+
+  .finds{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .find{border:1px solid var(--line);border-radius:14px;padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .find .dot{width:10px;height:10px;border-radius:50%;margin-top:7px}
+  .find h4{font-size:16px;margin-bottom:4px}
+  .find p{font-size:14.5px;color:var(--mut)}
+  .find p b{color:var(--ink)}
+
+  .loop{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 8px}
+  .step{border:1px solid var(--line);border-radius:100px;padding:10px 20px;font-size:14.5px;font-weight:600}
+  .step span{color:var(--navy);margin-right:8px}
+
+  .dl{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .pill{display:inline-flex;align-items:center;border:1px solid var(--line);padding:12px 22px;border-radius:100px;font-size:14.5px;font-weight:600;transition:border-color .3s,transform .3s var(--ease)}
+  .pill:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pill.dark:hover{background:var(--navy);border-color:var(--navy)}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 50px;color:var(--mut);font-size:14px}
+
+  /* WIP mini-lab */
+  .lab{background:var(--soft);border-radius:18px;padding:34px;margin-top:34px}
+  .lab-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px}
+  @media(max-width:760px){.lab-grid{grid-template-columns:1fr}}
+  .lab label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);font-weight:600;margin:16px 0 6px}
+  .lab label:first-child{margin-top:0}
+  .lab input{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-size:16px;font-family:inherit;color:var(--ink);background:#fff}
+  .lab input:focus{outline:none;border-color:var(--navy)}
+  .presets{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .preset{border:1px solid var(--line);background:#fff;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .25s}
+  .preset:hover{border-color:var(--ink)}
+  .out{border-top:1px solid var(--line);padding:16px 0}
+  .out:first-child{border-top:none;padding-top:0}
+  .out .ov{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.02em}
+  .out .ok{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:2px}
+  .out .os{font-size:13.5px;color:var(--mut);margin-top:4px}
+  .good{color:#2e7d4f}.warn{color:#b07c10}.bad{color:#c0392b}.neut{color:var(--navy)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .lb{position:fixed;inset:0;background:rgba(10,15,22,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:4vmin;cursor:zoom-out}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:8px}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html" aria-label="Home"><svg class="mono" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="back" href="index.html">← Back to portfolio</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <p class="label">Case study</p>
+    <h1>Northgate Constructors.</h1>
+    <p class="sub">How I built a construction WIP dashboard end to end — the scenario, the raw data, the model, and what it catches. <b>Directed with AI in about 3 hours. Verified by me, line by line.</b></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="label reveal">01 · The scenario</p>
+    <h2 class="reveal">A contractor with $371M in flight —<br>and no early warning system.</h2>
+    <p class="body reveal">Northgate Constructors is a fictional mid-size general contractor: eight active projects — water treatment, hospitals, wind farms, gas processing — worth <b>$371M in revised contract value</b>. Fictional, because my professional work is confidential. The mechanics, however, are exactly how construction finance works.</p>
+    <p class="body reveal">Construction recognizes revenue on <b>percentage of completion</b>: if you've incurred 60% of a job's expected cost, you've earned 60% of its contract value — no matter what you've actually invoiced. That gap between <b>earned</b> and <b>billed</b> is where the danger hides. Bill behind your earnings and you're quietly financing your client. Let a margin slip month over month and you won't see it in the GL until quarter-end — when it's already a loss.</p>
+    <p class="body reveal">A controller's defense is the <b>WIP schedule</b>. Most live in spreadsheets nobody opens. I wanted one that surfaces its own problems.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label reveal">02 · The data</p>
+    <h2 class="reveal">Raw inputs, built to behave<br>like the real thing.</h2>
+    <p class="body reveal">Generated programmatically so it carries the texture of real project data: <b>384 monthly cost rows</b> across labour, materials, subcontracts, and equipment; twelve months of progress billings; and a change-order register where — as auditors insist — <b>only approved COs revise contract value</b>. Pending ones are tracked, but kept out.</p>
+    <div class="fig2 reveal">
+      <div>
+        <div class="fig"><img src="excel-wip.png" alt="Projects sheet: contract values and estimated costs for eight projects" loading="lazy"></div>
+        <p class="cap">The portfolio: eight projects, revised contract values, current cost estimates — all formulas, nothing hardcoded.</p>
+      </div>
+      <div>
+        <div class="fig"><img src="excel-data.png" alt="Job cost detail rows by month and category" loading="lazy"></div>
+        <p class="cap">A slice of the cost detail feeding the model, month by month, category by category.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label reveal">03 · The model</p>
+    <h2 class="reveal">Fifteen measures.<br>Four ideas carry the weight.</h2>
+    <p class="body reveal">The DAX was drafted with AI assistance and <b>verified by me against source data</b> — every measure, every total. These four do the heavy lifting:</p>
+    <div class="mcards">
+      <div class="mcard reveal">
+        <h4>% Complete</h4>
+        <code>Cost to Date ÷ Estimated Total Cost</code>
+        <p>The cost-to-cost method — the standard way construction measures progress under percentage-of-completion accounting.</p>
+      </div>
+      <div class="mcard reveal">
+        <h4>Earned Revenue</h4>
+        <code>SUMX per project:
+% Complete × Revised Contract</code>
+        <p>Computed project by project, then summed — an aggregate ratio would blend projects together and quietly get it wrong.</p>
+      </div>
+      <div class="mcard reveal">
+        <h4>Over/(Under) Billing</h4>
+        <code>Billed to Date − Earned Revenue</code>
+        <p>Overbilled is a liability you owe in work. Underbilled is your cash sitting in the client's account. Both are normal — in moderation.</p>
+      </div>
+      <div class="mcard reveal">
+        <h4>Revised Contract Value</h4>
+        <code>Original + APPROVED change orders only</code>
+        <p>Counting pending COs in contract value is one of the most common construction audit findings. The model refuses by design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="wrap">
+    <p class="label reveal">Try it · The WIP Mini-Lab</p>
+    <h2 class="reveal">Run the math yourself.</h2>
+    <p class="body reveal">The same formulas as the dashboard, live. It loads with Larkspur's real numbers — the flagged job. Change anything and watch the position move.</p>
+    <div class="lab reveal">
+      <div class="lab-grid">
+        <div>
+          <label for="l-cv">Original contract value ($)</label>
+          <input id="l-cv" type="number" min="0" step="100000" value="19800000">
+          <label for="l-co">Approved change orders ($)</label>
+          <input id="l-co" type="number" min="0" step="10000" value="1346000">
+          <label for="l-ec">Estimated total cost ($)</label>
+          <input id="l-ec" type="number" min="0" step="100000" value="20723000">
+          <label for="l-cd">Cost to date ($)</label>
+          <input id="l-cd" type="number" min="0" step="100000" value="18336721">
+          <label for="l-bd">Billed to date ($)</label>
+          <input id="l-bd" type="number" min="0" step="100000" value="18883600">
+          <div class="presets">
+            <button class="preset" data-p="larkspur">Larkspur (the flag)</button>
+            <button class="preset" data-p="riverbend">Riverbend (underbilled)</button>
+            <button class="preset" data-p="healthy">A healthy job</button>
+          </div>
+        </div>
+        <div>
+          <div class="out"><div class="ok">% Complete</div><div class="ov neut" id="o-pct">—</div><div class="os">cost to date ÷ estimated total cost</div></div>
+          <div class="out"><div class="ok">Earned revenue</div><div class="ov neut" id="o-er">—</div><div class="os" id="s-er">—</div></div>
+          <div class="out"><div class="ok">Billing position</div><div class="ov" id="o-ou">—</div><div class="os" id="s-ou">—</div></div>
+          <div class="out"><div class="ok">Estimated gross profit</div><div class="ov" id="o-gp">—</div><div class="os" id="s-gp">—</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label reveal">04 · The report</p>
+    <h2 class="reveal">Two pages. Every problem<br>on the first screen.</h2>
+    <p class="body reveal">An executive overview — KPI row, full WIP schedule with rule-based flags, billing position, margin vs threshold — and a project deep dive with cumulative S-curves, cost mix, and the change-order register. Click to enlarge.</p>
+    <div class="shots">
+      <div class="shot" data-full="screenshot-overview.png"><img src="screenshot-overview.png" alt="Portfolio WIP overview page" loading="lazy"></div>
+      <div class="shot" data-full="screenshot-deepdive.png"><img src="screenshot-deepdive.png" alt="Project deep dive page" loading="lazy"></div>
+    </div>
+    <div class="finds">
+      <div class="find reveal">
+        <span class="dot" style="background:#e57373"></span>
+        <div><h4>Margin fade, caught early</h4><p>Larkspur Transit Garage is <b>88.5% complete earning 2.0%</b> — roughly $425K of profit on a $21M job, one bad month from break-even. Flagged red on the schedule, with no change-order upside left to rescue it.</p></div>
+      </div>
+      <div class="find reveal">
+        <span class="dot" style="background:#f0b429"></span>
+        <div><h4>Silent underbilling</h4><p>Riverbend Water Treatment sits <b>$8.8M behind its earned revenue</b> — work performed, cash unclaimed. The overview shows the whole book is net $17.9M underbilled: an interest-free loan to clients, visible at a glance.</p></div>
+      </div>
+      <div class="find reveal">
+        <span class="dot" style="background:#7fb3e8"></span>
+        <div><h4>Change-order exposure</h4><p>Coyote Flats carries <b>$3.2M of pending change orders</b> — outside contract value until approved, exactly where auditors expect them, but tracked so the earned-revenue swing is no surprise when they land.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label reveal">05 · The build</p>
+    <h2 class="reveal">Three directed hours.<br>A twenty-hour job by hand.</h2>
+    <p class="body reveal">This is the part that matters most to me. I didn't hand-craft this dashboard, and I didn't just prompt for it either. I <b>directed</b> it: specified the model and the accounting rules, had AI generate the dataset and draft the DAX, then verified every measure against source before it shipped. The same loop I run at work with Copilot — and the same loop I'd bring to any team adopting AI seriously.</p>
+    <div class="loop reveal">
+      <span class="step"><span>1</span>Direct</span>
+      <span class="step"><span>2</span>Generate</span>
+      <span class="step"><span>3</span>Verify</span>
+      <span class="step"><span>4</span>Ship</span>
+    </div>
+    <p class="body reveal" style="margin-top:22px">Don't take my word for any of it — the files are here:</p>
+    <div class="dl reveal">
+      <a class="pill dark" href="Northgate_WIP_Dashboard.pdf" target="_blank" rel="noopener">Report PDF</a>
+      <a class="pill" href="Northgate_Synthetic_Finance_Dataset.xlsx" download>Dataset (.xlsx)</a>
+      <a class="pill" href="Northgate_WIP_Dashboard.pbix" download>Power BI file (.pbix)</a>
+      <a class="pill" href="index.html#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><footer>© 2026 Muntaz Nabikhel · Built with Claude — because using AI well is the whole point.</footer></div>
+
+<div class="lb" id="lb" role="dialog" aria-label="Enlarged screenshot"><img id="lbimg" src="" alt="Enlarged view"></div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  // WIP mini-lab
+  var F=function(id){return document.getElementById(id)};
+  var money=function(n){ var neg=n<0; var s='$'+Math.round(Math.abs(n)).toLocaleString('en-US'); return neg?'('+s+')':s; };
+  var presets={
+    larkspur:{cv:19800000,co:1346000,ec:20723000,cd:18336721,bd:18883600},
+    riverbend:{cv:48500000,co:0,ec:44620000,cd:32250636,bd:26300200},
+    healthy:{cv:30000000,co:500000,ec:27500000,cd:13750000,bd:15500000}
+  };
+  function calc(){
+    var cv=+F('l-cv').value||0, co=+F('l-co').value||0, ec=+F('l-ec').value||0, cd=+F('l-cd').value||0, bd=+F('l-bd').value||0;
+    var rcv=cv+co;
+    var pct=ec>0?cd/ec:0; if(pct>1.5)pct=1.5;
+    var er=pct*rcv, ou=bd-er, gp=rcv-ec, gpp=rcv>0?gp/rcv:0;
+    F('o-pct').textContent=(pct*100).toFixed(1)+'%';
+    F('o-er').textContent=money(er);
+    F('s-er').textContent='at '+(pct*100).toFixed(1)+'% complete, the job has earned this much of its '+money(rcv)+' revised value — regardless of billing';
+    var oOu=F('o-ou'), sOu=F('s-ou');
+    if(Math.abs(ou)<1){ oOu.textContent='$0'; oOu.className='ov neut'; sOu.textContent='billed exactly in line with earnings — rare in the wild'; }
+    else if(ou<0){ oOu.textContent=money(ou)+' underbilled'; oOu.className='ov '+(ou<-0.05*rcv?'warn':'neut'); sOu.textContent='work performed but not yet invoiced — cash sitting with the client'; }
+    else { oOu.textContent='+'+money(ou)+' overbilled'; oOu.className='ov neut'; sOu.textContent='billed ahead of the work — cash-positive, but revenue you still owe in effort'; }
+    var oGp=F('o-gp'), sGp=F('s-gp');
+    oGp.textContent=money(gp)+' · '+(gpp*100).toFixed(1)+'%';
+    if(gpp<0){ oGp.className='ov bad'; sGp.textContent='this job is projected to lose money — escalate now'; }
+    else if(gpp<0.05){ oGp.className='ov bad'; sGp.textContent='below the 5% threshold — this is the red flag on the dashboard'; }
+    else if(gpp<0.08){ oGp.className='ov warn'; sGp.textContent='thin but workable — watch the estimate for fade'; }
+    else { oGp.className='ov good'; sGp.textContent='healthy margin for general contracting'; }
+  }
+  ['l-cv','l-co','l-ec','l-cd','l-bd'].forEach(function(id){ F(id).addEventListener('input',calc); });
+  document.querySelectorAll('.preset').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=presets[b.dataset.p];
+      F('l-cv').value=p.cv; F('l-co').value=p.co; F('l-ec').value=p.ec; F('l-cd').value=p.cd; F('l-bd').value=p.bd;
+      calc();
+    });
+  });
+  calc();
+
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
+  document.querySelectorAll('.shot').forEach(function(s){
+    s.addEventListener('click',function(){ lbimg.src=s.dataset.full; lb.classList.add('on'); document.body.style.overflow='hidden'; });
+  });
+  lb.addEventListener('click',function(){ lb.classList.remove('on'); lbimg.src=''; document.body.style.overflow=''; });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ lb.classList.remove('on'); document.body.style.overflow=''; } });
+})();
+</script>
+</body>
+</html>
