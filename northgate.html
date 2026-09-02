@@ -13,12 +13,15 @@
 <meta property="og:url" content="https://mnabikhel.github.io/northgate.html">
 <meta property="og:image" content="https://mnabikhel.github.io/screenshot-overview.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mnabikhel.github.io/northgate.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.fx,.reveal{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
 <body class="ready">
+<a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav on" id="nav" aria-label="Main">
   <div class="nav-in">
@@ -32,17 +35,17 @@
       <a href="#lab">Mini-Lab</a>
       <a class="btn btn-primary btn-sm nav-cta" href="index.html#contact">Get in touch</a>
     </div>
-    <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+    <button type="button" class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
   </div>
 </nav>
 
 <header class="cs-hero">
   <div class="hero-bg" aria-hidden="true">
     <div class="grid"></div>
-    <div class="glow a" style="top:-40%;right:-20%"></div>
+    <div class="glow a"></div>
     <div class="fade"></div>
   </div>
-  <div class="wrap" style="position:relative;z-index:2">
+  <div class="wrap">
     <p class="crumbs fx"><a href="index.html">Portfolio</a><span class="sep">/</span><a href="index.html#featured">Featured build</a><span class="sep">/</span><span>Case study</span></p>
     <p class="eyebrow fx fxd1">Case study · Power BI · DAX · Synthetic data</p>
     <h1 class="fx fxd2">Northgate <span class="serif">Constructors.</span></h1>
@@ -54,7 +57,6 @@
       <div><div class="k">Outcome</div><div class="v">$371M portfolio, 3 problems surfaced</div></div>
     </div>
   </div>
-  <noscript><style>.fx{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </header>
 
 <div class="wrap cs-layout">
@@ -68,7 +70,7 @@
     <a href="#build" data-sec="build"><span class="n">05</span>The build</a>
   </aside>
 
-  <main class="cs-main">
+  <main class="cs-main" id="main">
     <section id="scenario">
       <p class="eyebrow reveal">01 · The scenario</p>
       <h2 class="reveal">A contractor with $371M in flight — <span class="serif">and no early warning system.</span></h2>
@@ -149,9 +151,9 @@
             <div class="field"><input id="l-bd" type="number" min="0" step="100000" value="18883600"></div>
             <div class="presets">
               <span class="pl">Load a scenario</span>
-              <button class="preset on" data-p="larkspur">Larkspur (the flag)</button>
-              <button class="preset" data-p="riverbend">Riverbend (underbilled)</button>
-              <button class="preset" data-p="healthy">A healthy job</button>
+              <button type="button" class="preset on" data-p="larkspur">Larkspur (the flag)</button>
+              <button type="button" class="preset" data-p="riverbend">Riverbend (underbilled)</button>
+              <button type="button" class="preset" data-p="healthy">A healthy job</button>
             </div>
           </div>
           <div class="outs">
@@ -169,29 +171,29 @@
       <h2 class="reveal">Two pages. Every problem <span class="serif">on the first screen.</span></h2>
       <p class="body reveal">An executive overview — KPI row, full WIP schedule with rule-based flags, billing position, margin vs threshold — and a project deep dive with cumulative S-curves, cost mix, and the change-order register. Click to enlarge.</p>
       <div class="cs-shots reveal">
-        <div class="frame" data-full="screenshot-overview.png" role="button" tabindex="0" aria-label="Enlarge: Portfolio WIP overview page">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="url">page 1 / portfolio-wip-overview</span></div>
+        <button type="button" class="frame" data-full="screenshot-overview.png" aria-label="Enlarge: Portfolio WIP overview page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">page 1 / portfolio-wip-overview</span></span>
           <img src="screenshot-overview.png" alt="Portfolio WIP overview page" loading="lazy">
           <span class="zoom">Click to enlarge</span>
-        </div>
-        <div class="frame" data-full="screenshot-deepdive.png" role="button" tabindex="0" aria-label="Enlarge: Project deep dive page">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="url">page 2 / project-deep-dive</span></div>
+        </button>
+        <button type="button" class="frame" data-full="screenshot-deepdive.png" aria-label="Enlarge: Project deep dive page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">page 2 / project-deep-dive</span></span>
           <img src="screenshot-deepdive.png" alt="Project deep dive page" loading="lazy">
           <span class="zoom">Click to enlarge</span>
-        </div>
+        </button>
       </div>
       <div class="finds-light">
-        <div class="find-l reveal" style="--c:#d9534f">
+        <div class="find-l c-red reveal">
           <span class="ft">Flag · Red</span>
           <h4>Margin fade, caught early</h4>
           <p>Larkspur Transit Garage is <b>88.5% complete earning 2.0%</b> — roughly $425K of profit on a $21M job, one bad month from break-even. Flagged red on the schedule, with no change-order upside left to rescue it.</p>
         </div>
-        <div class="find-l reveal" style="--c:#e8a317">
+        <div class="find-l c-amber reveal">
           <span class="ft">Flag · Amber</span>
           <h4>Silent underbilling</h4>
           <p>Riverbend Water Treatment sits <b>$8.8M behind its earned revenue</b> — work performed, cash unclaimed. The overview shows the whole book is net $17.9M underbilled: an interest-free loan to clients, visible at a glance.</p>
         </div>
-        <div class="find-l reveal" style="--c:#2b6aa3">
+        <div class="find-l c-blue reveal">
           <span class="ft">Watch · Blue</span>
           <h4>Change-order exposure</h4>
           <p>Coyote Flats carries <b>$3.2M of pending change orders</b> — outside contract value until approved, exactly where auditors expect them, but tracked so the earned-revenue swing is no surprise when they land.</p>
@@ -209,7 +211,7 @@
         <div class="step"><p class="n">STEP 03</p><h4>Verify</h4><p>Every measure and total checked against source, by hand.</p></div>
         <div class="step"><p class="n">STEP 04</p><h4>Ship</h4><p>Only once it reconciles. Then publish the files for anyone to inspect.</p></div>
       </div>
-      <p class="body reveal" style="margin-top:36px">Don't take my word for any of it — the files are here:</p>
+      <p class="body spaced reveal">Don't take my word for any of it — the files are here:</p>
       <div class="dl reveal">
         <a class="btn btn-primary" href="Northgate_WIP_Dashboard.pdf" target="_blank" rel="noopener">Report PDF
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -222,7 +224,7 @@
   </main>
 </div>
 
-<footer class="cs-footer">
+<footer>
   <div class="wrap foot-in">
     <div class="foot-brand">
       <svg class="mono" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -238,19 +240,16 @@
   </div>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-label="Enlarged screenshot"><img id="lbimg" src="" alt="Enlarged view"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged screenshot" tabindex="-1"><button type="button" class="lb-close" id="lbclose" aria-label="Close">×</button><img id="lbimg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" hidden alt="Enlarged view"></div>
 
 <script>
 (function(){
   // nav mobile toggle
   var nav=document.getElementById('nav'), toggle=document.getElementById('navtoggle');
-  toggle.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.querySelectorAll('#navlinks a').forEach(function(a){
-    a.addEventListener('click',function(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
-  });
+  function setMenu(open){ nav.classList.toggle('open',open); toggle.setAttribute('aria-expanded',open?'true':'false'); }
+  toggle.addEventListener('click',function(){ setMenu(!nav.classList.contains('open')); });
+  document.querySelectorAll('#navlinks a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  document.addEventListener('click',function(e){ if(nav.classList.contains('open') && !nav.contains(e.target)) setMenu(false); });
 
   // reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:.12});
@@ -295,7 +294,6 @@
     oGp.className='ov '+state;
     // gauge: 0–20% GP scale, threshold mark at 5%
     var g=F('g-gp'); g.style.width=Math.max(0,Math.min(gpp/0.2,1))*100+'%'; g.style.background=gaugeColor[state];
-    F('m-gp').style.left='25%';
   }
   ['l-cv','l-co','l-ec','l-cd','l-bd'].forEach(function(id){ F(id).addEventListener('input',function(){
     document.querySelectorAll('.preset').forEach(function(b){ b.classList.remove('on'); });
@@ -312,15 +310,12 @@
   calc();
 
   // lightbox
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
-  function openLb(src){ lbimg.src=src; lb.classList.add('on'); document.body.style.overflow='hidden'; }
-  function closeLb(){ lb.classList.remove('on'); lbimg.src=''; document.body.style.overflow=''; }
-  document.querySelectorAll('.frame').forEach(function(s){
-    s.addEventListener('click',function(){ openLb(s.dataset.full); });
-    s.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(s.dataset.full); } });
-  });
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'), lbLast=null;
+  function openLb(src,from){ lbLast=from; lbimg.src=src; lbimg.hidden=false; lb.classList.add('on'); document.body.style.overflow='hidden'; lb.focus(); }
+  function closeLb(){ if(!lb.classList.contains('on')) return; lb.classList.remove('on'); lbimg.hidden=true; lbimg.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; document.body.style.overflow=''; if(lbLast) lbLast.focus(); }
+  document.querySelectorAll('.frame').forEach(function(s){ s.addEventListener('click',function(){ openLb(s.dataset.full,s); }); });
   lb.addEventListener('click',closeLb);
-  addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); setMenu(false); } });
 })();
 </script>
 </body>

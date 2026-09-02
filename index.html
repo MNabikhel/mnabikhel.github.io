@@ -13,12 +13,15 @@
 <meta property="og:url" content="https://mnabikhel.github.io/">
 <meta property="og:image" content="https://mnabikhel.github.io/screenshot-overview.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mnabikhel.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.fx,.reveal{opacity:1!important;transform:none!important;filter:none!important}.row .bar i{width:var(--w)}.spark rect{transform:none}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <div class="intro" id="intro" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path class="ip" d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 
@@ -35,7 +38,7 @@
       <a href="#background" data-sec="background">Background</a>
       <a class="btn btn-primary btn-sm nav-cta" href="#contact">Get in touch</a>
     </div>
-    <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
+    <button type="button" class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
   </div>
 </nav>
 
@@ -67,7 +70,7 @@
       </div>
     </div>
 
-    <div class="mock-wrap fx fxd4" aria-label="Preview of the Northgate WIP dashboard, rebuilt in HTML">
+    <div class="mock-wrap fx fxd4" role="img" aria-label="Preview of the Northgate WIP dashboard: KPI tiles, WIP schedule bars, and GP% chart with Larkspur flagged red">
       <div class="float-tag tl"><b>3 hrs</b> built with AI · a 20-hour job by hand</div>
       <div class="mock">
         <div class="mock-bar"><span class="t">Northgate Constructors — Portfolio WIP Overview</span><span class="s">SYNTHETIC DATA</span></div>
@@ -113,9 +116,9 @@
       <div class="float-tag br">Every figure <b>verified line by line</b></div>
     </div>
   </div>
-  <noscript><style>.fx{opacity:1!important;transform:none!important;filter:none!important}.row .bar i{width:var(--w)}.spark rect{transform:none}</style></noscript>
 </header>
 
+<main id="main">
 <div class="wrap">
   <div class="tools reveal">
     <div class="tools-in">
@@ -138,7 +141,7 @@
 </div>
 
 <!-- ================= FEATURED ================= -->
-<section id="featured" style="padding-bottom:0">
+<section id="featured" class="pb0">
   <div class="cine">
     <div class="wrap">
       <div class="cine-head">
@@ -158,37 +161,37 @@
       </div>
 
       <div class="shots reveal">
-        <div class="frame" data-full="screenshot-overview.png" role="button" tabindex="0" aria-label="Enlarge: Portfolio WIP overview page">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / portfolio-wip-overview</span></div>
+        <button type="button" class="frame" data-full="screenshot-overview.png" aria-label="Enlarge: Portfolio WIP overview page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / portfolio-wip-overview</span></span>
           <img src="screenshot-overview.png" alt="Portfolio WIP overview page" loading="lazy">
           <span class="zoom">Click to enlarge</span>
-        </div>
-        <div class="frame" data-full="screenshot-deepdive.png" role="button" tabindex="0" aria-label="Enlarge: Project deep dive page">
-          <div class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / project-deep-dive</span></div>
+        </button>
+        <button type="button" class="frame" data-full="screenshot-deepdive.png" aria-label="Enlarge: Project deep dive page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / project-deep-dive</span></span>
           <img src="screenshot-deepdive.png" alt="Project deep dive page" loading="lazy">
           <span class="zoom">Click to enlarge</span>
-        </div>
+        </button>
       </div>
 
       <div class="specs">
         <div class="spec reveal"><div class="sv">$371<span class="u">M</span></div><div class="sk">Portfolio modeled</div></div>
         <div class="spec reveal d1"><div class="sv">15</div><div class="sk">DAX measures, verified</div></div>
         <div class="spec reveal d2"><div class="sv">12<span class="u"> mo</span></div><div class="sk">Job-cost data, 8 projects</div></div>
-        <div class="spec reveal d3"><div class="sv amber">3<span class="u" style="color:var(--amber-2)"> hrs</span><span class="vs">not 20+</span></div><div class="sk">Built with AI in 3 hours — a 20-hour job by hand</div></div>
+        <div class="spec reveal d3"><div class="sv amber">3<span class="u"> hrs</span><span class="vs">not 20+</span></div><div class="sk">Built with AI in 3 hours — a 20-hour job by hand</div></div>
       </div>
 
       <div class="finds">
-        <div class="find reveal" style="--c:#ff7b74">
+        <div class="find c-red reveal">
           <div class="ft">Flag · Red</div>
           <h4>Margin fade, caught early</h4>
           <p>One job is <b>88% complete and earning 2%</b> — flagged red on the schedule long before quarter-end would surface it.</p>
         </div>
-        <div class="find reveal d1" style="--c:#f4c65a">
+        <div class="find c-amber reveal d1">
           <div class="ft">Flag · Amber</div>
           <h4>Silent underbilling</h4>
           <p>One project sits <b>$8.8M behind its earned revenue</b> — cash effectively lent to the client, visible at a glance.</p>
         </div>
-        <div class="find reveal d2" style="--c:#7fb3e8">
+        <div class="find c-blue reveal d2">
           <div class="ft">Watch · Blue</div>
           <h4>Change-order exposure</h4>
           <p><b>$3.2M of pending change orders</b> tracked outside contract value — exactly where auditors expect them to stay.</p>
@@ -298,7 +301,7 @@
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" style="padding-top:0">
+<section id="projects" class="pt0">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -355,7 +358,7 @@
 </section>
 
 <!-- ================= BACKGROUND ================= -->
-<section id="background" style="padding-top:0">
+<section id="background" class="pt0">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -387,7 +390,7 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" style="padding-top:0">
+<section id="contact" class="pt0">
   <div class="wrap">
     <div class="contact reveal">
       <div class="face-wrap">
@@ -408,6 +411,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot-in">
@@ -425,7 +429,7 @@
   </div>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-label="Enlarged screenshot"><img id="lbimg" src="" alt="Enlarged dashboard screenshot"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged screenshot" tabindex="-1"><button type="button" class="lb-close" id="lbclose" aria-label="Close">×</button><img id="lbimg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" hidden alt="Enlarged dashboard screenshot"></div>
 
 <script>
 (function(){
@@ -435,13 +439,10 @@
   var nav=document.getElementById('nav'), toggle=document.getElementById('navtoggle');
   function navState(){ nav.classList.toggle('on', scrollY>24); }
   addEventListener('scroll',navState,{passive:true}); navState();
-  toggle.addEventListener('click',function(){
-    var open=nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.querySelectorAll('#navlinks a').forEach(function(a){
-    a.addEventListener('click',function(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
-  });
+  function setMenu(open){ nav.classList.toggle('open',open); toggle.setAttribute('aria-expanded',open?'true':'false'); }
+  toggle.addEventListener('click',function(){ setMenu(!nav.classList.contains('open')); });
+  document.querySelectorAll('#navlinks a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  document.addEventListener('click',function(e){ if(nav.classList.contains('open') && !nav.contains(e.target)) setMenu(false); });
 
   // active section highlight
   var secLinks=document.querySelectorAll('#navlinks a[data-sec]');
@@ -465,9 +466,10 @@
 
   // intro splash (once per session) + hero entrance gate
   var intro=document.getElementById('intro');
+  var seen=false; try{ seen=!!sessionStorage.mnIntro; }catch(e){}
   if(intro){
-    if(reduced || sessionStorage.mnIntro){ intro.remove(); document.body.classList.add('ready'); }
-    else{ sessionStorage.mnIntro=1;
+    if(reduced || seen){ intro.remove(); document.body.classList.add('ready'); }
+    else{ try{ sessionStorage.mnIntro=1; }catch(e){}
       setTimeout(function(){ intro.classList.add('off'); document.body.classList.add('ready'); },1200);
       setTimeout(function(){ intro.remove(); },1900); }
   } else { document.body.classList.add('ready'); }
@@ -494,15 +496,12 @@
   }
 
   // lightbox
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
-  function openLb(src){ lbimg.src=src; lb.classList.add('on'); document.body.style.overflow='hidden'; }
-  function closeLb(){ lb.classList.remove('on'); lbimg.src=''; document.body.style.overflow=''; }
-  document.querySelectorAll('.frame').forEach(function(s){
-    s.addEventListener('click',function(){ openLb(s.dataset.full); });
-    s.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(s.dataset.full); } });
-  });
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'), lbLast=null;
+  function openLb(src,from){ lbLast=from; lbimg.src=src; lbimg.hidden=false; lb.classList.add('on'); document.body.style.overflow='hidden'; lb.focus(); }
+  function closeLb(){ if(!lb.classList.contains('on')) return; lb.classList.remove('on'); lbimg.hidden=true; lbimg.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; document.body.style.overflow=''; if(lbLast) lbLast.focus(); }
+  document.querySelectorAll('.frame').forEach(function(s){ s.addEventListener('click',function(){ openLb(s.dataset.full,s); }); });
   lb.addEventListener('click',closeLb);
-  addEventListener('keydown',function(e){ if(e.key==='Escape') closeLb(); });
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); setMenu(false); } });
 })();
 </script>
 </body>
