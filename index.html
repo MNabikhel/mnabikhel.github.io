@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Muntaz Nabikhel — Finance · Accounting · AI</title>
 <meta name="description" content="Muntaz Nabikhel — finance and accounting professional in industrial construction. I turn financial data into decisions, and automate what shouldn't be done by hand twice.">
+<meta name="theme-color" content="#f7f6f2">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%231F4E79'/%3E%3Cpath d='M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Muntaz Nabikhel — Finance · Accounting · AI">
@@ -12,256 +13,221 @@
 <meta property="og:url" content="https://mnabikhel.github.io/">
 <meta property="og:image" content="https://mnabikhel.github.io/screenshot-overview.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>
-  :root{
-    --ink:#101418; --mut:#66707c; --navy:#1F4E79; --deep:#0d1b2c; --line:#e7e9ee; --soft:#f6f7f9;
-    --ease:cubic-bezier(.22,1,.36,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  html,body{overflow-x:hidden}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-
-  /* ---------- nav ---------- */
-  nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transform:translateY(-100%);transition:transform .5s var(--ease),border-color .3s}
-  nav.on{transform:translateY(0);border-color:var(--line)}
-  .nav-in{max-width:1120px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;justify-content:space-between}
-  .mono{width:34px;height:34px;display:block}
-  .nav-links{display:flex;gap:26px;font-size:14px;color:var(--mut)}
-  .nav-links a{transition:color .25s}
-  .nav-links a:hover{color:var(--ink)}
-
-  /* ---------- hero ---------- */
-  header{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;
-    background:#fff url('blueprint-texture-2400x900.png') center/cover no-repeat}
-  header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 50%,#fff 97%)}
-  .hero{position:relative;z-index:2;padding:100px 0 60px}
-  .kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:26px}
-  h1{font-size:clamp(46px,8.5vw,104px);line-height:1;letter-spacing:-.035em;font-weight:700}
-  h1 .dim{color:#c3c9d2}
-  .sub{font-size:clamp(18px,2.3vw,23px);color:var(--mut);max-width:680px;margin:32px 0 44px}
-  .sub b{color:var(--ink);font-weight:600}
-  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:15px 28px;border-radius:100px;font-size:15px;font-weight:600;transition:background .3s}
-  .cta:hover{background:var(--navy)}
-  .cta svg{transition:transform .3s var(--ease)}
-  .cta:hover svg{transform:translateX(4px)}
-  .cta2{display:inline-flex;align-items:center;padding:15px 28px;border-radius:100px;font-size:15px;font-weight:600;border:1px solid var(--line);margin-left:12px;transition:border-color .3s}
-  .cta2:hover{border-color:var(--ink)}
-  .scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:var(--mut);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
-  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
-
-  /* ---------- shared ---------- */
-  .label{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:16px}
-  h2{font-size:clamp(32px,5vw,56px);letter-spacing:-.03em;line-height:1.05;margin-bottom:20px}
-  .lead{color:var(--mut);font-size:18.5px;max-width:660px}
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
-  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-
-  /* ---------- featured: cinematic navy scene ---------- */
-  .cine{background:var(--deep);color:#fff;padding:130px 0 140px;position:relative;overflow:hidden}
-  .cine::before{content:"";position:absolute;inset:-6%;background:url('screenshot-overview.png') center/cover no-repeat;filter:blur(12px) brightness(.30) saturate(.75);animation:cineZoom 38s ease-in-out infinite alternate;z-index:0}
-  .cine::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--deep) 0%,rgba(13,27,44,.35) 30%,rgba(13,27,44,.55) 70%,var(--deep) 100%);z-index:0}
-  .cine>*{position:relative;z-index:1}
-  .cine h2{font-size:clamp(36px,5.6vw,68px)}
-  @keyframes cineZoom{from{transform:scale(1)}to{transform:scale(1.12)}}
-  .cine .label{color:#7fb3e8}
-  .cine .lead{color:#9db0c9}
-  .cine h2{color:#fff}
-  .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1120px;margin:70px auto 0;padding:0 28px}
-  @media(max-width:760px){.specs{grid-template-columns:1fr 1fr;gap:34px 20px}}
-  .spec .sv{font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-.02em;line-height:1}
-  .spec .sv .u{font-size:.5em;font-weight:600;color:#7fb3e8}
-  .spec .sk{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7d8ea6;margin-top:10px}
-  .finds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1120px;margin:64px auto 0;padding:0 28px}
-  @media(max-width:760px){.finds{grid-template-columns:1fr}}
-  .find{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:26px;text-align:left}
-  .find h4{font-size:15px;color:#fff;margin-bottom:9px;display:flex;align-items:center;gap:9px;font-weight:600}
-  .find .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-  .find p{font-size:14px;color:#9db0c9;line-height:1.55}
-  .find p b{color:#e6edf6;font-weight:600}
-  .cine-note{text-align:center;color:#7d8ea6;font-size:14px;margin-top:26px}
-  .cine-note a{color:#7fb3e8;font-weight:600}
-
-  section{padding:130px 0}
-  .tag{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:6px}
-
-  /* ---------- contact ---------- */
-  .about{display:grid;grid-template-columns:210px 1fr;gap:52px;align-items:center}
-  @media(max-width:700px){.about{grid-template-columns:1fr}}
-  .face{width:210px;height:210px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:1px solid var(--line)}
-  .face-fallback{width:210px;height:210px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center}
-  .links{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
-  .pill{display:inline-flex;align-items:center;border:1px solid var(--line);padding:12px 22px;border-radius:100px;font-size:14.5px;font-weight:600;transition:border-color .3s,transform .3s var(--ease)}
-  .pill:hover{border-color:var(--ink);transform:translateY(-2px)}
-
-  footer{border-top:1px solid var(--line);padding:38px 0 50px;color:var(--mut);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  footer .claude{color:var(--navy);font-weight:600}
-
-  .lb{position:fixed;inset:0;background:rgba(10,15,22,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:4vmin;cursor:zoom-out}
-  .lb.on{display:flex}
-  .lb img{max-width:100%;max-height:100%;border-radius:8px}
-  .shot-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1120px;margin:64px auto 0;padding:0 28px}
-  @media(max-width:760px){.shot-row{grid-template-columns:1fr}}
-  .shot{border-radius:10px;overflow:hidden;cursor:zoom-in;box-shadow:0 30px 60px -30px rgba(0,0,0,.55);transition:transform .5s var(--ease)}
-  .shot:hover{transform:translateY(-4px)}
-  .shot img{width:100%;display:block}
-
-  .intro{position:fixed;inset:0;z-index:200;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .55s ease,visibility .55s ease}
-  .intro.off{opacity:0;visibility:hidden}
-  .intro .ip{stroke-dasharray:90;stroke-dashoffset:90;animation:ipdraw 1s .15s var(--ease) forwards}
-  @keyframes ipdraw{to{stroke-dashoffset:0}}
-  #rotor{display:inline-block;transition:opacity .35s ease,transform .35s var(--ease)}
-  #rotor.out{opacity:0;transform:translateY(14px)}
-
-  .bg2col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:52px}
-  @media(max-width:760px){.bg2col{grid-template-columns:1fr}}
-  .cred{border:1px solid var(--line);border-radius:18px;padding:36px}
-  .cred h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:20px}
-  .cred li{list-style:none;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--mut)}
-  .cred li:last-child{border-bottom:none}
-  .cred li b{color:var(--ink);font-weight:600;display:block}
-
-  /* ---------- full-presence panels ---------- */
-  .panels{margin-top:20px}
-  .panel{position:relative;min-height:74vh;display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
-  .panel:first-child{border-top:none}
-  .pnum{display:flex;align-items:center;justify-content:center;user-select:none;will-change:transform}
-  .pnum svg{width:min(330px,78%);height:auto;fill:none;stroke:#c9d3e0;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s var(--ease)}
-  .panel.live .pnum svg{stroke:var(--navy)}
-  .pnum svg .fillacc{fill:#e57373;stroke:none}
-  .panel:nth-child(even) .pnum{order:2}
-  .pbody h3{font-size:clamp(30px,4.2vw,48px);letter-spacing:-.025em;line-height:1.05;margin:12px 0 20px}
-  .pbody p{font-size:17px;color:var(--mut);max-width:540px}
-  .pbody .metric{display:inline-block;margin:20px 12px 0 0;padding:8px 16px;background:var(--soft);border-radius:100px;font-size:13.5px;color:var(--ink)}
-  .pbody p b{color:var(--ink);font-weight:600}
-  .built{margin-top:26px;max-width:540px}
-  .built .bl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:6px}
-  .built ul{list-style:none}
-  .built li{position:relative;padding:12px 0 12px 28px;border-top:1px solid var(--line);font-size:15.5px;color:var(--mut);line-height:1.5}
-  .built li::before{content:"→";position:absolute;left:0;top:12px;color:var(--navy);font-weight:600}
-  .built li b{color:var(--ink);font-weight:600}
-  @media (prefers-reduced-motion: no-preference){
-    .pnum svg *:not(.fillacc){stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.7s var(--ease),stroke 1s var(--ease)}
-    .pnum svg *:nth-child(2){transition-delay:.12s}
-    .pnum svg *:nth-child(3){transition-delay:.24s}
-    .pnum svg *:nth-child(4){transition-delay:.36s}
-    .pnum svg *:nth-child(5){transition-delay:.48s}
-    .pnum svg *:nth-child(6){transition-delay:.6s}
-    .panel.live .pnum svg *:not(.fillacc){stroke-dashoffset:0}
-    .pnum svg .fillacc{opacity:0;transition:opacity .6s var(--ease) 1.2s}
-    .panel.live .pnum svg .fillacc{opacity:1}
-  }
-  @media(max-width:820px){
-    .panel{grid-template-columns:1fr;min-height:auto;gap:10px;padding:56px 0}
-    .pnum{font-size:88px;order:0!important;text-align:left!important}
-  }
-  @media (prefers-reduced-motion: no-preference){
-    .from-l{transform:translateX(-44px)}
-    .from-r{transform:translateX(44px)}
-  }
-
-  .hl{display:block}
-  @media (prefers-reduced-motion: no-preference){
-    .fx{opacity:0;transform:translateY(26px);filter:blur(10px)}
-    body.ready .fx{animation:fxin 1s var(--ease) forwards}
-    body.ready .fxd1{animation-delay:.1s}
-    body.ready .fxd2{animation-delay:.22s}
-    body.ready .fxd3{animation-delay:.38s}
-    body.ready .fxd4{animation-delay:.55s}
-    body.ready .fxd5{animation-delay:1s}
-    h2.reveal{clip-path:inset(0 0 100% 0);transition:opacity .9s var(--ease),transform .9s var(--ease),clip-path .9s var(--ease)}
-    h2.reveal.in{clip-path:inset(-10% 0 -14% 0)}
-    .cine{will-change:margin,border-radius}
-  }
-  @keyframes fxin{to{opacity:1;transform:none;filter:none}}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none!important;transition:none!important}
-    .reveal{opacity:1;transform:none}
-  }
-</style>
+<link rel="canonical" href="https://mnabikhel.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>.fx,.reveal{opacity:1!important;transform:none!important;filter:none!important}.row .bar i{width:var(--w)}.spark rect{transform:none}</style></noscript>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="intro" id="intro" aria-hidden="true"><svg width="88" height="88" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path class="ip" d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="intro" id="intro" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path class="ip" d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 
-<nav id="nav" aria-label="Main">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="nav-in">
-    <a href="#top" aria-label="Home"><svg class="mono" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <div class="nav-links">
-      <a href="#featured">Featured</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    <a class="brand" href="#top" aria-label="Home">
+      <svg class="mono" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="brand-name">Muntaz Nabikhel</span><span class="brand-role">Finance · Accounting · AI</span></span>
+    </a>
+    <div class="nav-links" id="navlinks">
+      <a href="#featured" data-sec="featured">Featured</a>
+      <a href="#work" data-sec="work">Work</a>
+      <a href="#projects" data-sec="projects">Projects</a>
+      <a href="#background" data-sec="background">Background</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="#contact">Get in touch</a>
     </div>
+    <button type="button" class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
   </div>
 </nav>
 
-<header id="top">
-  <div class="wrap hero">
-    <p class="kick fx">Finance · Accounting · Automation &amp; AI</p>
-    <h1><span class="hl fx fxd1">From ledgers</span><span class="hl fx fxd2">to <span class="dim" id="rotor">dashboards.</span></span></h1>
-    <p class="sub fx fxd3"><b>Muntaz Nabikhel</b> — BCom Finance, University of Alberta. Accountant in industrial construction. I turn financial data into decisions — and automate anything that shouldn't be done by hand twice.</p>
-    <a class="cta fx fxd4" href="#featured">See the work
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <a class="cta2 fx fxd4" href="#contact">Get in touch</a>
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid"></div><div class="grid-fine"></div>
+    <div class="glow a"></div><div class="glow b"></div>
+    <div class="fade"></div>
   </div>
-  <div class="scrolldown fx fxd5">Scroll</div>
-  <noscript><style>.fx{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
+  <div class="wrap hero-in">
+    <div>
+      <div class="status fx"><span class="pulse"></span>Associate Accountant · EPC contractor<span class="sm-hide"> · Edmonton</span></div>
+      <h1>
+        <span class="line fx fxd1">From ledgers</span>
+        <span class="line fx fxd2">to <span class="rot"><span id="rotor">dashboards.</span><span class="ul"></span></span></span>
+      </h1>
+      <p class="lead fx fxd3"><b>Muntaz Nabikhel</b> — BCom Finance, University of Alberta. Accountant in industrial construction. I turn financial data into decisions — and automate anything that shouldn't be done by hand twice.</p>
+      <div class="hero-ctas fx fxd4">
+        <a class="btn btn-primary" href="#featured">See the work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="hero-meta fx fxd5">
+        <div><div class="k">Focus</div><div class="v">Finance · Accounting</div></div>
+        <div><div class="k">Toolkit</div><div class="v">Power BI · VBA · Python · AI</div></div>
+        <div><div class="k">Operating loop</div><div class="v">Direct · Generate · Verify</div></div>
+      </div>
+    </div>
+
+    <div class="mock-wrap fx fxd4" role="img" aria-label="Preview of the Northgate WIP dashboard: KPI tiles, WIP schedule bars, and GP% chart with Larkspur flagged red">
+      <div class="float-tag tl"><b>3 hrs</b> built with AI · a 20-hour job by hand</div>
+      <div class="mock">
+        <div class="mock-bar"><span class="t">Northgate Constructors — Portfolio WIP Overview</span><span class="s">SYNTHETIC DATA</span></div>
+        <div class="mock-body">
+          <div class="kpis">
+            <div class="kpi"><div class="kv">$371M</div><div class="kk">Contract value revised</div></div>
+            <div class="kpi"><div class="kv">$209M</div><div class="kk">Earned revenue</div></div>
+            <div class="kpi"><div class="kv neg">($18M)</div><div class="kk">Over/(under) billing</div></div>
+            <div class="kpi"><div class="kv">6.4%</div><div class="kk">Gross profit</div></div>
+          </div>
+          <div class="mock-grid">
+            <div class="mock-panel">
+              <div class="ph">WIP schedule <span class="sub">% COMPLETE</span></div>
+              <div class="rows">
+                <div class="row"><span class="id">P-107</span><span class="bar"><i style="--w:34.9%"></i></span><span class="val">34.9%</span></div>
+                <div class="row"><span class="id">P-104</span><span class="bar"><i style="--w:62.3%"></i></span><span class="val">62.3%</span></div>
+                <div class="row"><span class="id">P-101</span><span class="bar"><i style="--w:72.3%"></i></span><span class="val">72.3%</span></div>
+                <div class="row"><span class="id">P-108</span><span class="bar"><i style="--w:20.1%"></i></span><span class="val">20.1%</span></div>
+                <div class="row"><span class="id">P-102</span><span class="bar"><i style="--w:98.1%"></i></span><span class="val">98.1%</span></div>
+                <div class="row"><span class="id">P-103</span><span class="bar"><i style="--w:41.5%"></i></span><span class="val">41.5%</span></div>
+                <div class="row"><span class="id">P-105</span><span class="bar"><i class="warn" style="--w:55.6%"></i></span><span class="val">55.6%</span></div>
+                <div class="row"><span class="id">P-106</span><span class="bar"><i class="flag" style="--w:88.5%"></i></span><span class="val flag">88.5%</span></div>
+              </div>
+            </div>
+            <div class="mock-panel">
+              <div class="ph">GP% vs 5% threshold</div>
+              <svg class="spark" viewBox="0 0 200 118" aria-hidden="true">
+                <text x="0" y="11.5">P-107</text><rect x="36" y="4" width="160" height="9" rx="2"/>
+                <text x="0" y="25.5">P-104</text><rect x="36" y="18" width="120" height="9" rx="2"/>
+                <text x="0" y="39.5">P-101</text><rect x="36" y="32" width="107" height="9" rx="2"/>
+                <text x="0" y="53.5">P-108</text><rect x="36" y="46" width="107" height="9" rx="2"/>
+                <text x="0" y="67.5">P-102</text><rect x="36" y="60" width="93" height="9" rx="2"/>
+                <text x="0" y="81.5">P-103</text><rect x="36" y="74" width="80" height="9" rx="2"/>
+                <text x="0" y="95.5">P-105</text><rect x="36" y="88" width="67" height="9" rx="2"/>
+                <text x="0" y="109.5">P-106</text><rect class="flag" x="36" y="102" width="27" height="9" rx="2"/>
+                <line class="thr" x1="102.7" y1="0" x2="102.7" y2="116"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mock-foot"><span>8 PROJECTS · 15 DAX MEASURES</span><span class="flagged"><i></i>P-106 LARKSPUR · 2.0% GP</span></div>
+        </div>
+      </div>
+      <div class="float-tag br">Every figure <b>verified line by line</b></div>
+    </div>
+  </div>
 </header>
 
-<!-- cinematic featured scene -->
-<div class="cine" id="featured">
-  <div class="wrap" style="text-align:center">
-    <p class="label reveal">01 · Featured build</p>
-    <h2 class="reveal d1">Northgate Constructors.<br>A WIP dashboard, end to end.</h2>
-    <p class="lead reveal d2" style="margin:0 auto">My professional work is confidential. So I built a contractor that isn't — and rebuilt the capability in the open. <b style="color:#fff">Directed with AI. Verified by me, line by line.</b></p>
-    <a class="cta reveal d3" href="northgate.html" style="background:#fff;color:var(--deep);margin-top:34px">Read the full case study
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-  </div>
-  <div class="shot-row reveal">
-    <div class="shot" data-full="screenshot-overview.png"><img src="screenshot-overview.png" alt="Portfolio WIP overview page" loading="lazy"></div>
-    <div class="shot" data-full="screenshot-deepdive.png"><img src="screenshot-deepdive.png" alt="Project deep dive page" loading="lazy"></div>
-  </div>
-  <p class="cine-note reveal" style="margin-top:20px">Click either view to enlarge</p>
-  <div class="specs">
-    <div class="spec reveal"><div class="sv">$371<span class="u">M</span></div><div class="sk">Portfolio modeled</div></div>
-    <div class="spec reveal d1"><div class="sv">15</div><div class="sk">DAX measures, verified</div></div>
-    <div class="spec reveal d2"><div class="sv">12<span class="u"> mo</span></div><div class="sk">Job-cost data, 8 projects</div></div>
-    <div class="spec reveal d3"><div class="sv" style="color:#f0b429">3<span class="u" style="color:#f0b429"> hrs</span> <span style="font-size:.45em;font-weight:600;color:#7d8ea6">not 20+</span></div><div class="sk">Built with AI in 3 hours — a 20-hour job by hand</div></div>
-  </div>
-  <div class="finds">
-    <div class="find reveal">
-      <h4><span class="dot" style="background:#e57373"></span>Margin fade, caught early</h4>
-      <p>One job is <b>88% complete and earning 2%</b> — flagged red on the schedule long before quarter-end would surface it.</p>
-    </div>
-    <div class="find reveal d1">
-      <h4><span class="dot" style="background:#f0b429"></span>Silent underbilling</h4>
-      <p>One project sits <b>$8.8M behind its earned revenue</b> — cash effectively lent to the client, visible at a glance.</p>
-    </div>
-    <div class="find reveal d2">
-      <h4><span class="dot" style="background:#7fb3e8"></span>Change-order exposure</h4>
-      <p><b>$3.2M of pending change orders</b> tracked outside contract value — exactly where auditors expect them to stay.</p>
+<main id="main">
+<div class="wrap">
+  <div class="tools reveal">
+    <div class="tools-in">
+      <span class="tl">Daily toolkit</span>
+      <ul>
+        <li>Power BI &amp; DAX</li><li>Excel VBA</li><li>Python</li><li>JD Edwards</li><li>Microsoft Copilot</li><li>Claude</li>
+      </ul>
     </div>
   </div>
-  <p class="cine-note reveal" style="margin-top:56px">Inspect it yourself: <a href="Northgate_WIP_Dashboard.pdf" target="_blank" rel="noopener">Report PDF</a> · <a href="Northgate_Synthetic_Finance_Dataset.xlsx" download>Dataset (.xlsx)</a> · <a href="Northgate_WIP_Dashboard.pbix" download>Power BI file (.pbix)</a></p>
 </div>
 
-<!-- work: broad, expandable -->
+<!-- ================= STATS ================= -->
+<div class="wrap stats">
+  <div class="stats-grid">
+    <div class="stat reveal"><div class="sv">~208<span class="u"> hrs</span></div><div class="sk"><b>Saved per year</b> by scripting menu generation chain-wide</div></div>
+    <div class="stat reveal d1"><div class="sv">10<span class="u"> min</span></div><div class="sk"><b>Monthly overhead report</b> — down from several hours by hand</div></div>
+    <div class="stat reveal d2"><div class="sv">$371<span class="u">M</span></div><div class="sk"><b>Portfolio modeled</b> in the Northgate WIP dashboard</div></div>
+    <div class="stat reveal d3"><div class="sv">5<span class="u"> min</span></div><div class="sk"><b>Payroll reporting cycle</b>, end to end — realistically an hour each by hand</div></div>
+  </div>
+</div>
+
+<!-- ================= FEATURED ================= -->
+<section id="featured" class="pb0">
+  <div class="cine">
+    <div class="wrap">
+      <div class="cine-head">
+        <div>
+          <p class="eyebrow reveal">01 · Featured build</p>
+          <h2 class="reveal d1">Northgate Constructors.<br>A WIP dashboard,<br><span class="serif">end to end.</span></h2>
+        </div>
+        <div class="right">
+          <p class="lead reveal d2">My professional work is confidential. So I built a contractor that isn't — and rebuilt the capability in the open. <b>Directed with AI. Verified by me, line by line.</b></p>
+          <div class="cine-actions reveal d3">
+            <a class="btn btn-light" href="northgate.html">Read the full case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-outline-light" href="northgate.html#lab">Try the Mini-Lab</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shots reveal">
+        <button type="button" class="frame" data-full="screenshot-overview.png" aria-label="Enlarge: Portfolio WIP overview page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / portfolio-wip-overview</span></span>
+          <img src="screenshot-overview.png" alt="Portfolio WIP overview page" loading="lazy">
+          <span class="zoom">Click to enlarge</span>
+        </button>
+        <button type="button" class="frame" data-full="screenshot-deepdive.png" aria-label="Enlarge: Project deep dive page">
+          <span class="frame-bar"><i></i><i></i><i></i><span class="url">northgate / project-deep-dive</span></span>
+          <img src="screenshot-deepdive.png" alt="Project deep dive page" loading="lazy">
+          <span class="zoom">Click to enlarge</span>
+        </button>
+      </div>
+
+      <div class="specs">
+        <div class="spec reveal"><div class="sv">$371<span class="u">M</span></div><div class="sk">Portfolio modeled</div></div>
+        <div class="spec reveal d1"><div class="sv">15</div><div class="sk">DAX measures, verified</div></div>
+        <div class="spec reveal d2"><div class="sv">12<span class="u"> mo</span></div><div class="sk">Job-cost data, 8 projects</div></div>
+        <div class="spec reveal d3"><div class="sv amber">3<span class="u"> hrs</span><span class="vs">not 20+</span></div><div class="sk">Built with AI in 3 hours — a 20-hour job by hand</div></div>
+      </div>
+
+      <div class="finds">
+        <div class="find c-red reveal">
+          <div class="ft">Flag · Red</div>
+          <h4>Margin fade, caught early</h4>
+          <p>One job is <b>88% complete and earning 2%</b> — flagged red on the schedule long before quarter-end would surface it.</p>
+        </div>
+        <div class="find c-amber reveal d1">
+          <div class="ft">Flag · Amber</div>
+          <h4>Silent underbilling</h4>
+          <p>One project sits <b>$8.8M behind its earned revenue</b> — cash effectively lent to the client, visible at a glance.</p>
+        </div>
+        <div class="find c-blue reveal d2">
+          <div class="ft">Watch · Blue</div>
+          <h4>Change-order exposure</h4>
+          <p><b>$3.2M of pending change orders</b> tracked outside contract value — exactly where auditors expect them to stay.</p>
+        </div>
+      </div>
+
+      <div class="files reveal">
+        <span class="fl">Inspect it yourself</span>
+        <a class="file" href="Northgate_WIP_Dashboard.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>Report <span class="ext">PDF</span></a>
+        <a class="file" href="Northgate_Synthetic_Finance_Dataset.xlsx" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>Dataset <span class="ext">.XLSX</span></a>
+        <a class="file" href="Northgate_WIP_Dashboard.pbix" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Power BI file <span class="ext">.PBIX</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
 <section id="work">
   <div class="wrap">
-    <p class="label reveal">02 · Work</p>
-    <h2 class="reveal d1">What I do, day to day.</h2>
-    <p class="lead reveal d2">Associate Accountant at an EPC contractor — supporting multi-million-dollar industrial projects with reporting, forecasting, and full-cycle accounting. Described at resume level; the data stays confidential.</p>
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal">02 · Work</p>
+        <h2 class="reveal d1">What I do, <span class="serif">day to day.</span></h2>
+      </div>
+      <p class="lead reveal d2">Associate Accountant at an EPC contractor — supporting multi-million-dollar industrial projects with reporting, forecasting, and full-cycle accounting. Described at resume level; the data stays confidential.</p>
+    </div>
 
-    <div class="panels">
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Dashboard sketch"><rect x="20" y="30" width="180" height="150" rx="12"/><path d="M20 62h180"/><path d="M55 155V115M95 155V90M135 155V125M175 155V75"/><path d="M50 100 L95 74 L140 104 L182 58"/><circle cx="182" cy="58" r="5"/></svg></div>
-        <div class="pbody reveal from-r">
-          <p class="tag">01 · Financial reporting &amp; analytics</p>
-          <h3>Executive reporting,<br>monthly rhythm.</h3>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-vis">
+          <span class="idx">01</span><span class="badge">Power BI · Copilot · VBA</span>
+          <svg viewBox="0 0 220 220" role="img" aria-label="Dashboard sketch"><rect x="20" y="30" width="180" height="150" rx="12"/><path d="M20 62h180"/><path class="soft" d="M55 155V115M95 155V90M135 155V125M175 155V75"/><path d="M50 100 L95 74 L140 104 L182 58"/><circle cx="182" cy="58" r="5"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="tag">Financial reporting &amp; analytics</p>
+          <h3>Executive reporting, monthly rhythm.</h3>
           <p>Managers across the company make decisions from reporting I own end to end — each report built with a different mix of AI and hand-crafting, whichever the job deserved.</p>
           <div class="built"><p class="bl">What I built</p>
             <ul>
@@ -270,14 +236,18 @@
               <li><b>Precontract cost report</b> — logic and code Copilot-drafted, directed and verified by me; tracks costs on jobs still being bid, before they're won or lost</li>
             </ul>
           </div>
-          <span class="metric">3 recurring reports</span><span class="metric">Hours → 10 min</span><span class="metric">Power BI · Copilot · VBA</span>
+          <div class="chips"><span class="chip">3 recurring reports</span><span class="chip accent">Hours → 10 min</span><span class="chip">Power BI · Copilot · VBA</span></div>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Invoice to PDF sketch"><path d="M30 25h60l25 25v115H30z"/><path d="M90 25v25h25"/><path d="M48 80h50M48 100h50M48 120h32"/><path d="M120 150h38M150 142l8 8-8 8"/><rect x="160" y="120" width="40" height="55" rx="7"/></svg></div>
-        <div class="pbody reveal from-l">
-          <p class="tag">02 · Accounting operations</p>
-          <h3>Full-cycle accounting,<br>automated where it counts.</h3>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-vis">
+          <span class="idx">02</span><span class="badge">Excel VBA · JDE</span>
+          <svg viewBox="0 0 220 220" role="img" aria-label="Invoice to PDF sketch"><path d="M30 25h60l25 25v115H30z"/><path d="M90 25v25h25"/><path class="soft" d="M48 80h50M48 100h50M48 120h32"/><path d="M120 150h38M150 142l8 8-8 8"/><rect x="160" y="120" width="40" height="55" rx="7"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="tag">Accounting operations</p>
+          <h3>Full-cycle accounting, automated where it counts.</h3>
           <p>Journal entries, reconciliations, and client invoicing on multi-million-dollar projects, in a compliance-heavy environment — and a layer of automation I built on top of all of it:</p>
           <div class="built"><p class="bl">What I built</p>
             <ul>
@@ -287,109 +257,130 @@
               <li><b>Automated email distribution</b> — reports and billing sent without touching an inbox</li>
             </ul>
           </div>
-          <span class="metric">5-min payroll cycle</span><span class="metric">Zero discrepancies</span><span class="metric">Excel VBA · JDE</span>
+          <div class="chips"><span class="chip accent">5-min payroll cycle</span><span class="chip">Zero discrepancies</span><span class="chip">Excel VBA · JDE</span></div>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Forecast curve sketch"><path d="M35 30v155h155"/><path d="M45 170 C90 164 88 118 112 94 S162 52 184 44"/><path stroke-dasharray="6 8" d="M45 170 C95 158 100 132 124 112 S170 78 186 68"/><circle cx="62" cy="58" r="17"/><path d="M54 58l6 6 10-11"/></svg></div>
-        <div class="pbody reveal from-r">
-          <p class="tag">03 · Forecasting &amp; project controls</p>
-          <h3>Cash-flow forecasting,<br>made visible.</h3>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-vis">
+          <span class="idx">03</span><span class="badge">Copilot · Power BI</span>
+          <svg viewBox="0 0 220 220" role="img" aria-label="Forecast curve sketch"><path d="M35 30v155h155"/><path d="M45 170 C90 164 88 118 112 94 S162 52 184 44"/><path class="soft" stroke-dasharray="6 8" d="M45 170 C95 158 100 132 124 112 S170 78 186 68"/><circle cx="62" cy="58" r="17"/><path d="M54 58l6 6 10-11"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="tag">Forecasting &amp; project controls</p>
+          <h3>Cash-flow forecasting, made visible.</h3>
           <p>Cash-collection forecasting lived in a multi-week manual workbook nobody could see into. I mapped the workflow and chose the metrics that mattered — then built the fix:</p>
           <div class="built"><p class="bl">What I built</p>
             <ul>
               <li><b>Forecasting dashboard</b> — built mainly with Copilot: a multi-section view that tells project controls whether their forecasts were accurate, and whether revisions helped or hurt</li>
             </ul>
           </div>
-          <span class="metric">Weeks → hours</span><span class="metric">Exec + PM audience</span><span class="metric">Workflow analysis first</span>
+          <div class="chips"><span class="chip accent">Weeks → hours</span><span class="chip">Exec + PM audience</span><span class="chip">Workflow analysis first</span></div>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Menu automation sketch"><rect x="50" y="22" width="115" height="172" rx="10"/><path d="M70 52h75M70 78h75M70 104h48"/><circle cx="152" cy="152" r="19"/><path d="M152 126v-9M152 189v-9M126 152h-9M187 152h-9M170 134l7-7M134 170l-7 7M134 134l-7-7M170 170l7 7"/></svg></div>
-        <div class="pbody reveal from-l">
-          <p class="tag">04 · Previous role · Retail operations</p>
-          <h3>Menu generation,<br>scripted.</h3>
-          <p>Staff at every location rebuilt paper menus by hand, endlessly. It taught me the pattern I now look for everywhere: small task × huge repetition = automate it.</p>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-vis">
+          <span class="idx">04</span><span class="badge">Python</span>
+          <svg viewBox="0 0 220 220" role="img" aria-label="Menu automation sketch"><rect x="50" y="22" width="115" height="172" rx="10"/><path class="soft" d="M70 52h75M70 78h75M70 104h48"/><circle cx="152" cy="152" r="19"/><path d="M152 126v-9M152 189v-9M126 152h-9M187 152h-9M170 134l7-7M134 170l-7 7M134 134l-7-7M170 170l7 7"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="tag">Previous role · Retail operations</p>
+          <h3>Menu generation, scripted.</h3>
+          <p>Staff at every location rebuilt paper menus by hand, endlessly. It taught me the pattern I now look for everywhere: <b>small task × huge repetition = automate it.</b></p>
           <div class="built"><p class="bl">What I built</p>
             <ul>
               <li><b>Menu generator</b> — Python script producing every location's menus automatically, rolled out chain-wide; about <b>208 hours of labour saved per year</b></li>
             </ul>
           </div>
-          <span class="metric">~208 hrs/yr saved</span><span class="metric">All locations</span><span class="metric">Python</span>
+          <div class="chips"><span class="chip accent">~208 hrs/yr saved</span><span class="chip">All locations</span><span class="chip">Python</span></div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- personal projects -->
-<section id="projects" style="padding-top:0">
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="pt0">
   <div class="wrap">
-    <p class="label reveal">03 · Personal projects</p>
-    <h2 class="reveal d1">Built on my own time.</h2>
-    <p class="lead reveal d2">Where I sharpen the tools. Full write-ups coming soon.</p>
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal">03 · Personal projects</p>
+        <h2 class="reveal d1">Built on <span class="serif">my own time.</span></h2>
+      </div>
+      <p class="lead reveal d2">Where I sharpen the tools. Full write-ups coming soon.</p>
+    </div>
 
-    <div class="panels">
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="WIP schedule sketch"><rect x="22" y="42" width="176" height="136" rx="10"/><path d="M22 74h176M22 108h176M22 142h176"/><path d="M84 42v136M142 42v136"/><circle class="fillacc" cx="170" cy="125" r="7"/></svg></div>
-        <div class="pbody reveal from-r">
-          <p class="tag">01 · Power BI · DAX · Synthetic data</p>
-          <h3>Northgate<br>WIP dashboard.</h3>
-          <p>The featured build above: a fictional contractor with a full percentage-of-completion model — earned revenue, over/under-billings, margin-fade flags, change-order exposure. <b>An AI-directed build:</b> data generated programmatically, DAX drafted with AI assistance, every figure verified by hand and traceable to source. About three directed hours, versus twenty-plus by hand.</p>
-          <p style="margin-top:16px"><a href="northgate.html" style="color:var(--navy);font-weight:600">Read the full case study →</a></p>
-          <span class="metric">$371M modeled</span><span class="metric">8 projects</span><span class="metric">15 measures</span><span class="metric">AI-directed</span>
+    <div class="bento">
+      <article class="tile featured reveal">
+        <div class="tile-top">
+          <div class="tile-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16"/><circle class="fillacc" cx="18" cy="16.5" r="1.4"/></svg></div>
+          <p class="tag">Power BI · DAX · Synthetic data</p>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Interactive sliders sketch"><rect x="30" y="28" width="160" height="164" rx="14"/><path d="M55 75h110M55 112h110M55 149h110"/><circle cx="98" cy="75" r="9"/><circle cx="142" cy="112" r="9"/><circle cx="76" cy="149" r="9"/></svg></div>
-        <div class="pbody reveal from-l">
-          <p class="tag">02 · Interactive · POC accounting</p>
-          <h3>The WIP<br>Mini-Lab.</h3>
-          <p>An interactive companion to the case study: the dashboard's exact formulas, live in the browser. It loads with Larkspur's real numbers — the flagged job — so the first thing you see is a margin alert. Change anything and watch the billing position and margin move. Built so even non-finance readers can <b>feel</b> how percentage-of-completion works.</p>
-          <p style="margin-top:16px"><a href="northgate.html#lab" style="color:var(--navy);font-weight:600">Open the lab →</a></p>
-          <span class="metric">Live in the browser</span><span class="metric">Same math as the dashboard</span><span class="metric">Zero libraries</span>
+        <h3>Northgate WIP dashboard.</h3>
+        <p>The featured build above: a fictional contractor with a full percentage-of-completion model — earned revenue, over/under-billings, margin-fade flags, change-order exposure. <b>An AI-directed build:</b> data generated programmatically, DAX drafted with AI assistance, every figure verified by hand and traceable to source. About three directed hours, versus twenty-plus by hand.</p>
+        <a class="more" href="northgate.html">Read the full case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="chips"><span class="chip">$371M modeled</span><span class="chip">8 projects</span><span class="chip">15 measures</span><span class="chip">AI-directed</span></div>
+      </article>
+
+      <article class="tile reveal d1">
+        <div class="tile-top">
+          <div class="tile-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="#fff"/><circle cx="15" cy="12" r="2" fill="#fff"/><circle cx="8" cy="17" r="2" fill="#fff"/></svg></div>
+          <p class="tag">Interactive · POC accounting</p>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="AI spark sketch"><circle cx="110" cy="110" r="82"/><path d="M110 48v124"/><path d="M56 79l108 62"/><path d="M164 79L56 141"/><circle cx="110" cy="110" r="14"/></svg></div>
-        <div class="pbody reveal from-r">
-          <p class="tag">03 · Claude · LLMs</p>
-          <h3>Building<br>with AI.</h3>
-          <p>Anthropic Claude 101 and AI Fluency certified. I build browser games with Claude Artifacts — working up through increasing complexity — and experiment with the Claude API. Hands-on time is how I've developed <b>judgment about where AI genuinely adds value, and where it doesn't.</b></p>
-          <span class="metric">2 Anthropic certifications</span><span class="metric">Claude API</span>
+        <h3>The WIP Mini-Lab.</h3>
+        <p>An interactive companion to the case study: the dashboard's exact formulas, live in the browser. It loads with Larkspur's real numbers — the flagged job — so the first thing you see is a margin alert. Change anything and watch the billing position and margin move. Built so even non-finance readers can <b>feel</b> how percentage-of-completion works.</p>
+        <a class="more" href="northgate.html#lab">Open the lab <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="chips"><span class="chip">Live in the browser</span><span class="chip">Same math as the dashboard</span><span class="chip">Zero libraries</span></div>
+      </article>
+
+      <article class="tile reveal d2">
+        <div class="tile-top">
+          <div class="tile-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M4.6 8l14.8 8M19.4 8L4.6 16"/><circle cx="12" cy="12" r="1.8" fill="#fff"/></svg></div>
+          <p class="tag">Claude · LLMs</p>
         </div>
-      </div>
-      <div class="panel">
-        <div class="pnum reveal"><svg viewBox="0 0 220 220" role="img" aria-label="Browser sketch"><rect x="22" y="42" width="176" height="136" rx="12"/><path d="M22 74h176"/><path d="M42 58h.5M60 58h.5M78 58h.5"/><path d="M45 104h85M45 126h58"/><path d="M138 112l32 14-14 5-5 14z"/></svg></div>
-        <div class="pbody reveal from-l">
-          <p class="tag">04 · Web · AI-directed</p>
-          <h3>This<br>website.</h3>
-          <p>The site you're reading is my second AI-directed build. I set the design direction — light, editorial, motion with meaning — and directed Claude through the build: scroll-choreographed sections, a hand-drawn monogram, zero frameworks, one HTML file. Same loop as the dashboard: <b>direct, generate, verify.</b></p>
-          <span class="metric">Zero frameworks</span><span class="metric">One file</span><span class="metric">Direct · generate · verify</span>
+        <h3>Building with AI.</h3>
+        <p>Anthropic Claude 101 and AI Fluency certified. I build browser games with Claude Artifacts — working up through increasing complexity — and experiment with the Claude API. Hands-on time is how I've developed <b>judgment about where AI genuinely adds value, and where it doesn't.</b></p>
+        <div class="chips"><span class="chip">2 Anthropic certifications</span><span class="chip">Claude API</span></div>
+      </article>
+
+      <article class="tile reveal d3">
+        <div class="tile-top">
+          <div class="tile-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M6.5 6.5h.01M9 6.5h.01M11.5 6.5h.01M7 13h7M7 16h4"/><path d="M15 12.5l4 1.8-1.8.7-.7 1.8z"/></svg></div>
+          <p class="tag">Web · AI-directed</p>
         </div>
-      </div>
+        <h3>This website.</h3>
+        <p>The site you're reading is my second AI-directed build. I set the design direction — light, editorial, motion with meaning — and directed Claude through the build: scroll-choreographed sections, a hand-drawn monogram, zero frameworks, hand-written HTML and CSS. Same loop as the dashboard: <b>direct, generate, verify.</b></p>
+        <div class="chips"><span class="chip">Zero frameworks</span><span class="chip">Hand-written CSS</span><span class="chip">Direct · generate · verify</span></div>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="background" style="padding-top:0">
+<!-- ================= BACKGROUND ================= -->
+<section id="background" class="pt0">
   <div class="wrap">
-    <p class="label reveal">04 · Background</p>
-    <h2 class="reveal d1">Credentials.</h2>
-    <div class="bg2col reveal d2">
-      <div class="cred">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow reveal">04 · Background</p>
+        <h2 class="reveal d1">Credentials.</h2>
+      </div>
+      <p class="lead reveal d2">Finance by training, automation by habit — and a deliberate investment in learning to use AI well.</p>
+    </div>
+    <div class="creds">
+      <div class="cred reveal">
         <h3>Education</h3>
         <ul>
-          <li><b>Bachelor of Commerce, Finance</b>University of Alberta · 2020 – 2024</li>
+          <li><b>Bachelor of Commerce, Finance</b>University of Alberta<span class="when">2020 – 2024</span></li>
           <li><b>Relevant coursework</b>Investment Principles · Trading &amp; Financial Markets · International Financial Markets · Advanced Portfolio Management</li>
-          <li><b>U of A Investor Club — 1st place</b>Portfolio management competition · 15% return over six months</li>
+          <li class="win"><b>U of A Investor Club — 1st place</b>Portfolio management competition · 15% return over six months</li>
         </ul>
       </div>
-      <div class="cred">
+      <div class="cred reveal d1">
         <h3>Certifications &amp; development</h3>
         <ul>
-          <li><b>Claude 101</b>Anthropic · 2026</li>
-          <li><b>AI Fluency: Framework &amp; Foundations</b>Anthropic · 2026</li>
+          <li><b>Claude 101</b>Anthropic<span class="when">2026</span></li>
+          <li><b>AI Fluency: Framework &amp; Foundations</b>Anthropic<span class="when">2026</span></li>
           <li><b>Investing in Cryptocurrencies: Fundamentals &amp; Risks</b>Alberta Securities Commission</li>
           <li><b>QuickBooks Bootcamp</b>RBC Future Launch</li>
         </ul>
@@ -398,86 +389,90 @@
   </div>
 </section>
 
-<section id="contact" style="padding-top:0">
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="pt0">
   <div class="wrap">
-    <div class="about">
-      <img class="face" src="headshot.jpg" alt="Muntaz Nabikhel" onerror="this.outerHTML='<div class=&quot;face-fallback&quot;><svg width=&quot;64&quot; height=&quot;64&quot; viewBox=&quot;0 0 40 40&quot;><rect width=&quot;40&quot; height=&quot;40&quot; rx=&quot;10&quot; fill=&quot;%231F4E79&quot;/><path d=&quot;M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2.4&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/></svg></div>'">
+    <div class="contact reveal">
+      <div class="face-wrap">
+        <img class="face" src="headshot.jpg" alt="Muntaz Nabikhel" onerror="this.outerHTML='<div class=&quot;face-fallback&quot;><svg width=&quot;64&quot; height=&quot;64&quot; viewBox=&quot;0 0 40 40&quot;><rect width=&quot;40&quot; height=&quot;40&quot; rx=&quot;10&quot; fill=&quot;%231F4E79&quot;/><path d=&quot;M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2.4&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/></svg></div>'">
+        <span class="loc">Edmonton, AB</span>
+      </div>
       <div>
-        <p class="label reveal">05 · About &amp; contact</p>
-        <h2 class="reveal d1">Let's talk.</h2>
-        <p class="lead reveal d2">I'm Muntaz — an Edmonton-based accountant at an industrial construction company in Fort Saskatchewan. I got into automation the honest way: I kept meeting work that shouldn't be done by hand twice, and couldn't leave it alone. These days that instinct runs on Power BI, VBA, Python, and AI — at work, and on my own time. Off the clock you'll find me building with Claude and following the markets.</p>
-        <div class="links reveal d3">
-          <a class="pill" href="mailto:Nabikhel@ualberta.ca">Nabikhel@ualberta.ca</a>
-          <a class="pill" href="https://linkedin.com/in/Nabikhel" target="_blank" rel="noopener">LinkedIn</a>
+        <p class="eyebrow">05 · About &amp; contact</p>
+        <h2>Let's <span class="serif">talk.</span></h2>
+        <p class="lead">I'm Muntaz — an Edmonton-based accountant at an industrial construction company in Fort Saskatchewan. I got into automation the honest way: I kept meeting work that shouldn't be done by hand twice, and couldn't leave it alone. These days that instinct runs on <b>Power BI, VBA, Python, and AI</b> — at work, and on my own time. Off the clock you'll find me building with Claude and following the markets.</p>
+        <div class="links">
+          <a class="btn btn-light" href="mailto:Nabikhel@ualberta.ca">Nabikhel@ualberta.ca
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-outline-light" href="https://linkedin.com/in/Nabikhel" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<div class="wrap">
-  <footer>
-    <span>© 2026 Muntaz Nabikhel</span>
-    <span>Built with <span class="claude">Claude</span> — because using AI well is the whole point.</span>
-  </footer>
-</div>
+<footer>
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <svg class="mono" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1F4E79"/><path d="M6 27V13.5l5 7.5 5-7.5V27M23 27V13.5l9 13.5V13.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><b>Muntaz Nabikhel</b> · Finance · Accounting · AI</span>
+    </div>
+    <div class="foot-links">
+      <a href="#featured">Featured</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#background">Background</a><a href="#contact">Contact</a><a href="northgate.html">Case study</a>
+    </div>
+    <div class="foot-note">
+      <span>© 2026 Muntaz Nabikhel</span>
+      <span>Built with <span class="claude">Claude</span> — because using AI well is the whole point.</span>
+    </div>
+  </div>
+</footer>
 
-<div class="lb" id="lb" role="dialog" aria-label="Enlarged screenshot"><img id="lbimg" src="" alt="Enlarged dashboard screenshot"></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged screenshot" tabindex="-1"><button type="button" class="lb-close" id="lbclose" aria-label="Close">×</button><img id="lbimg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" hidden alt="Enlarged dashboard screenshot"></div>
 
 <script>
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var nav=document.getElementById('nav');
-  addEventListener('scroll',function(){ nav.classList.toggle('on', scrollY>innerHeight*.6); },{passive:true});
+  // nav: solid after leaving the top; mobile toggle
+  var nav=document.getElementById('nav'), toggle=document.getElementById('navtoggle');
+  function navState(){ nav.classList.toggle('on', scrollY>24); }
+  addEventListener('scroll',navState,{passive:true}); navState();
+  function setMenu(open){ nav.classList.toggle('open',open); toggle.setAttribute('aria-expanded',open?'true':'false'); }
+  toggle.addEventListener('click',function(){ setMenu(!nav.classList.contains('open')); });
+  document.querySelectorAll('#navlinks a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  document.addEventListener('click',function(e){ if(nav.classList.contains('open') && !nav.contains(e.target)) setMenu(false); });
 
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:.15});
+  // active section highlight
+  var secLinks=document.querySelectorAll('#navlinks a[data-sec]');
+  var secs=[].map.call(secLinks,function(a){ return document.getElementById(a.dataset.sec); }).concat([document.getElementById('contact'),document.getElementById('top')]).filter(Boolean);
+  var sio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        secLinks.forEach(function(a){ a.classList.toggle('active', a.dataset.sec===e.target.id); });
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(function(s){ sio.observe(s); });
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  // panels "activate" as they enter: numeral fills with ink
-  var lio=new IntersectionObserver(function(es){es.forEach(function(e){ e.target.classList.toggle('live', e.isIntersecting); });},{threshold:.45});
-  document.querySelectorAll('.panel').forEach(function(p){ lio.observe(p); });
+  // cards draw their sketch as they enter
+  var lio=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('live'); } });},{threshold:.35});
+  document.querySelectorAll('.card').forEach(function(p){ lio.observe(p); });
 
   // intro splash (once per session) + hero entrance gate
   var intro=document.getElementById('intro');
+  var seen=false; try{ seen=!!sessionStorage.mnIntro; }catch(e){}
   if(intro){
-    if(reduced || sessionStorage.mnIntro){ intro.remove(); document.body.classList.add('ready'); }
-    else{ sessionStorage.mnIntro=1;
-      setTimeout(function(){ intro.classList.add('off'); document.body.classList.add('ready'); },1300);
-      setTimeout(function(){ intro.remove(); },2000); }
+    if(reduced || seen){ intro.remove(); document.body.classList.add('ready'); }
+    else{ try{ sessionStorage.mnIntro=1; }catch(e){}
+      setTimeout(function(){ intro.classList.add('off'); document.body.classList.add('ready'); },1200);
+      setTimeout(function(){ intro.remove(); },1900); }
   } else { document.body.classList.add('ready'); }
-
-  // navy scene grows from inset card to full bleed
-  var cine=document.querySelector('.cine');
-  if(cine && !reduced){
-    function grow(){
-      var r=cine.getBoundingClientRect(), vh=innerHeight;
-      var p=Math.min(Math.max((vh-r.top)/(vh*.75),0),1);
-      var m=(1-p)*5, rad=(1-p)*40;
-      cine.style.marginLeft=m+'vw'; cine.style.marginRight=m+'vw'; cine.style.borderRadius=rad+'px';
-    }
-    addEventListener('scroll',grow,{passive:true}); grow();
-  }
-
-  // parallax drift on giant panel numerals
-  var pnums=document.querySelectorAll('.pnum');
-  if(pnums.length && !reduced){
-    function drift(){
-      pnums.forEach(function(n){
-        var r=n.getBoundingClientRect();
-        if(r.bottom>0 && r.top<innerHeight) n.style.transform='translateY('+((r.top-innerHeight/2)*-0.09)+'px)';
-      });
-    }
-    addEventListener('scroll',drift,{passive:true}); drift();
-  }
-
-  // gentle texture parallax in hero
-  var hdr=document.querySelector('header');
-  if(hdr && !reduced){
-    addEventListener('scroll',function(){
-      if(scrollY<innerHeight) hdr.style.backgroundPosition='center '+(scrollY*.25)+'px';
-    },{passive:true});
-  }
 
   // hero word rotor: what ledgers become
   var rotor=document.getElementById('rotor');
@@ -489,13 +484,24 @@
     },2800);
   }
 
+  // mock card: subtle pointer tilt on desktop
+  var mock=document.querySelector('.mock'), mw=document.querySelector('.mock-wrap');
+  if(mock && mw && !reduced && matchMedia('(min-width:981px)').matches){
+    mw.addEventListener('mousemove',function(e){
+      var r=mw.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      mock.style.animation='none';
+      mock.style.transform='rotateY('+(-6+x*10)+'deg) rotateX('+(3-y*8)+'deg)';
+    });
+    mw.addEventListener('mouseleave',function(){ mock.style.transform=''; mock.style.animation=''; });
+  }
+
   // lightbox
-  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg');
-  document.querySelectorAll('.shot').forEach(function(s){
-    s.addEventListener('click',function(){ lbimg.src=s.dataset.full; lb.classList.add('on'); document.body.style.overflow='hidden'; });
-  });
-  lb.addEventListener('click',function(){ lb.classList.remove('on'); lbimg.src=''; document.body.style.overflow=''; });
-  addEventListener('keydown',function(e){ if(e.key==='Escape'){ lb.classList.remove('on'); document.body.style.overflow=''; } });
+  var lb=document.getElementById('lb'), lbimg=document.getElementById('lbimg'), lbLast=null;
+  function openLb(src,from){ lbLast=from; lbimg.src=src; lbimg.hidden=false; lb.classList.add('on'); document.body.style.overflow='hidden'; lb.focus(); }
+  function closeLb(){ if(!lb.classList.contains('on')) return; lb.classList.remove('on'); lbimg.hidden=true; lbimg.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; document.body.style.overflow=''; if(lbLast) lbLast.focus(); }
+  document.querySelectorAll('.frame').forEach(function(s){ s.addEventListener('click',function(){ openLb(s.dataset.full,s); }); });
+  lb.addEventListener('click',closeLb);
+  addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); setMenu(false); } });
 })();
 </script>
 </body>
