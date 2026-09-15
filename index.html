@@ -54,7 +54,7 @@
       <div class="status fx"><span class="pulse"></span>AI Analyst · Corporate Finance<span class="sm-hide"> · PCL</span></div>
       <h1>
         <span class="line fx fxd1">From ledgers</span>
-        <span class="line fx fxd2">to <span class="rot"><span id="rotor">dashboards.</span><span class="ul"></span></span></span>
+        <span class="line fx fxd2">to <span class="rot" id="rotor"><span class="w is-on">dashboards.</span><span class="w" aria-hidden="true">forecasts.</span><span class="w" aria-hidden="true">decisions.</span></span></span>
       </h1>
       <p class="lead fx fxd3"><b>Muntaz Nabikhel</b> — BCom Finance, University of Alberta. AI Analyst in Corporate Finance at PCL Construction; accountant by training. I turn financial data into decisions — and automate anything that shouldn't be done by hand twice.</p>
       <div class="hero-ctas fx fxd4">
@@ -477,10 +477,11 @@
   // hero word rotor: what ledgers become
   var rotor=document.getElementById('rotor');
   if(rotor && !reduced){
-    var words=['dashboards.','forecasts.','decisions.'], wi=0;
+    var words=rotor.querySelectorAll('.w'), wi=0;
     setInterval(function(){
-      rotor.classList.add('out');
-      setTimeout(function(){ wi=(wi+1)%words.length; rotor.textContent=words[wi]; rotor.classList.remove('out'); },360);
+      var cur=words[wi]; wi=(wi+1)%words.length; var nxt=words[wi];
+      cur.classList.remove('is-on'); cur.classList.add('is-out'); cur.setAttribute('aria-hidden','true');
+      setTimeout(function(){ cur.classList.remove('is-out'); nxt.classList.add('is-on'); nxt.removeAttribute('aria-hidden'); },360);
     },2800);
   }
 
